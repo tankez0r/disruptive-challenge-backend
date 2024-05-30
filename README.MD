@@ -1,5 +1,3 @@
-# Aplicación del clima:  React + TypeScript + Vite 
-
 # Documentación de la Aplicación del Clima
 
 ### Descripción de la Aplicación:
