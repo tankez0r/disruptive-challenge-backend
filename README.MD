@@ -17,8 +17,9 @@ No tiene permisos para crear tópicos ni eliminar contenido.
 - Usuario Lector:
 
 Solo tiene permisos para revisar todo el contenido y las categorías creadas por la aplicación.
-La aplicación sigue el patrón de diseño Modelo Vista Controlador (MVC) para mantener una estructura de código limpia y modular.
 
+
+La aplicación sigue el patrón de diseño Modelo Vista Controlador (MVC) para mantener una estructura de código limpia y modular.
 La validación y creación de usuarios se manejan a través de middlewares que utilizan la librería JWT para garantizar la seguridad y autenticidad.
 
 
