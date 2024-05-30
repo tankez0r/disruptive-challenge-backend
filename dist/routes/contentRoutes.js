@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const ContentControllers_1 = require("./../controllers/ContentControllers");
+const authMiddleware_1 = require("../middleware/authMiddleware");
+const attachmentMiddleware_1 = require("../middleware/attachmentMiddleware");
+const Content_1 = require("../models/Content");
+const router = (0, express_1.Router)();
+router.post('/', authMiddleware_1.authMiddleware, (0, authMiddleware_1.permitRoles)('creador', 'admin'), ContentControllers_1.createContent);
+router.put('/:id', authMiddleware_1.authMiddleware, (0, authMiddleware_1.permitRoles)('creador', 'admin'), ContentControllers_1.updateContent);
+router.delete('/:id', authMiddleware_1.authMiddleware, (0, authMiddleware_1.permitRoles)('admin'), ContentControllers_1.deleteContent);
+router.get('/', ContentControllers_1.getContents);
+router.get('/searchByTitle', ContentControllers_1.searchByTitle);
+router.get('/topic/:topicId', ContentControllers_1.getContentByTopic);
+router.get('/:id/download', (req, res, next) => { (0, attachmentMiddleware_1.sendAttachment)(req, res, next, Content_1.Content); });
+exports.default = router;

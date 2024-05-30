@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const body_parser_1 = __importDefault(require("body-parser"));
+const server_1 = __importDefault(require("./server"));
+const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+const contentRoutes_1 = __importDefault(require("./routes/contentRoutes"));
+const ErrorHandler_1 = require("./middleware/ErrorHandler");
+const topicRoutes_1 = __importDefault(require("./routes/topicRoutes"));
+const cors_1 = __importDefault(require("cors"));
+const app = (0, express_1.default)();
+app.use(body_parser_1.default.json({ limit: '50mb' }));
+app.use((0, cors_1.default)());
+app.use('/users', userRoutes_1.default);
+app.use('/contents', contentRoutes_1.default);
+app.use('/topics', topicRoutes_1.default);
+app.use(ErrorHandler_1.errorHandler);
+(0, server_1.default)(app);
