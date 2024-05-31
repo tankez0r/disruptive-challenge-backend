@@ -102,5 +102,5 @@ La aplicación cuenta con las siguientes librerías:
 
 ## Colección de llamados postman
 
-dentro del repositorio tambien se encuentra un archivo tipo JSON llamado Local Api que sirve para exportar a la herramienta local de peticiones como soporte para entender como se hacen
+dentro del repositorio tambien se encuentra un archivo tipo JSON llamado Local Api que sirve para importar a la herramienta local de peticiones como soporte para entender como se hacen
 todos los llamados posibles a la aplicación, teniendo cada una las variables correspondientes en sus argumentos ya sea para crear usuarios, contenido, modificar contenido, o borrar topicos.
