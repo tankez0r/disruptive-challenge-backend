@@ -12,7 +12,7 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
     }
     try {
         const { payload } = await compactVerify(token, secretKey);
-        const user = JSON.parse(new TextDecoder().decode(payload))
+        const user = JSON.parse(new TextDecoder().decode(payload));
         req.body.user = user;
         next();
     } catch (error) {

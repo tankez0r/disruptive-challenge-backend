@@ -150,6 +150,21 @@
 			"response": []
 		},
 		{
+			"name": "traer informacion de usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI2NjU3NjI3MDdiZGU3YmQyNGU1MGY2YWYiLCJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InRhbmtlODkxIn0.MEyFoOD_95bBjXNSlJY6YMPeTAKMIjU59TymOpIanko"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/topics/"
+			},
+			"response": []
+		},
+		{
 			"name": "buscar tematica",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true

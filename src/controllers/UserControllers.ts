@@ -51,21 +51,34 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
 
 export const getUserWithContents = async (req: Request, res: Response, next: NextFunction) => {
     const { userId } = req.params;
-  
+
     if (!mongoose.Types.ObjectId.isValid(userId)) {
-      return res.status(400).json({ message: 'Invalid user ID' });
+        return res.status(400).json({ message: 'Invalid user ID' });
     }
-  
+
     try {
-      const user = await User.findById(userId).select('username email').lean();
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-  
-      const contents = await Content.find({ author: userId }).select('-file').lean();
-  
-      res.status(200).json({ user, contents });
+        const user = await User.findById(userId).select('username email').lean();
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const contents = await Content.find({ author: userId }).select('-file').lean();
+
+        res.status(200).json({ user, contents });
     } catch (error) {
-      next(error); 
+        next(error);
     }
-  };
+};
+
+
+export const getUserInfo = async (req: Request, res: Response, next: NextFunction) => {
+    const { userId, role, username } = req.body.user;
+
+    try {
+        const contents = await Content.find({ author: userId }).select('-file').lean();
+
+        res.status(200).json({ user: { role, username }, contents });
+    } catch (error) {
+        next(error);
+    }
+};
